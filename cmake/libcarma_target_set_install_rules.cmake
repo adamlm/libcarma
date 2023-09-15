@@ -41,10 +41,10 @@ function consolidates that code so it can be used across CARMA Library.
 
 include(GNUInstallDirs)
 
-function(libcarma_target_set_install_rules target_name)
+function(libcarma_target_set_install_rules target)
 
-  install(TARGETS ${library}
-    EXPORT ${library}Targets
+  install(TARGETS ${target}
+    EXPORT ${target}Targets
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
@@ -56,13 +56,13 @@ function(libcarma_target_set_install_rules target_name)
     FILES_MATCHING PATTERN "*.hpp"
   )
 
-  install(FILES ${CMAKE_CURRENT_LIST_DIR}/cmake/${library}Config.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${library}
+  install(FILES ${CMAKE_CURRENT_LIST_DIR}/cmake/${target}Config.cmake
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${target}
   )
 
-  install(EXPORT ${library}Targets
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${library}
-    FILE ${library}Targets.cmake
+  install(EXPORT ${target}Targets
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${target}
+    FILE ${target}Targets.cmake
     NAMESPACE libcarma::
   )
 
