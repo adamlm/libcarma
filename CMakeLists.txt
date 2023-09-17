@@ -40,3 +40,7 @@ endif()
 if(libcarma_sae_common_BUILD_LIBRARY)
   libcarma_add_to_build(sae_common)
 endif()
+
+if(libcarma_sae_j2735_BUILD_LIBRARY)
+  libcarma_add_to_build(sae_j2735)
+endif()
