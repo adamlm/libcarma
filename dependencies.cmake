@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include(libcarma_add_to_build)
 include(libcarma_target_remove_library_prefix)
 include(libcarma_target_remove_export_name_prefix)
 include(libcarma_target_set_compiler_warnings)
