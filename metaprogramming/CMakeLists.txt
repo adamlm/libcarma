@@ -22,8 +22,6 @@ target_include_directories(libcarma_metaprogramming
     $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>
 )
 
-libcarma_target_remove_library_prefix(libcarma_metaprogramming)
-
 if(libcarma_metaprogramming_BUILD_TESTS)
   add_subdirectory(test)
 endif()
