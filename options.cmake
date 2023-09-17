@@ -48,3 +48,8 @@ option(libcarma_metaprogramming_BUILD_LIBRARY
   "Build CARMA Metaprogramming library"
   ${libcarma_BUILD_LIBRARIES}
 )
+
+option(libcarma_sae_common_BUILD_LIBRARY
+  "Build CARMA SAE Common library"
+  ${libcarma_BUILD_LIBRARIES}
+)

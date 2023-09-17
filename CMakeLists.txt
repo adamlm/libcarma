@@ -34,5 +34,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ${libcarma_EXPORT_COMPILE_COMMANDS})
 file(TOUCH ${PROJECT_BINARY_DIR}/COLCON_IGNORE)
 
 if(libcarma_metaprogramming_BUILD_LIBRARY)
-  add_subdirectory(metaprogramming)
+  libcarma_add_to_build(metaprogramming)
+endif()
+
+if(libcarma_sae_common_BUILD_LIBRARY)
+  libcarma_add_to_build(sae_common)
 endif()

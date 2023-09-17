@@ -12,20 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include(options.cmake)
-
-add_library(libcarma_metaprogramming INTERFACE)
-add_library(libcarma::metaprogramming ALIAS libcarma_metaprogramming)
-
-target_include_directories(libcarma_metaprogramming
-  INTERFACE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>
+option(libcarma_sae_common_BUILD_TESTS
+  "Build CARMA SAE Common Library tests"
+  ${libcarma_BUILD_TESTS}
 )
 
-if(libcarma_metaprogramming_BUILD_TESTS)
-  add_subdirectory(test)
-endif()
+option(libcarma_sae_common_BUILD_INSTALL
+  "Build CARMA SAE Common Library CMake install targets"
+  ${libcarma_BUILD_INSTALL}
+)
 
-if(libcarma_metaprogramming_BUILD_INSTALL)
-  libcarma_target_set_install_rules(libcarma_metaprogramming)
-endif()
+option(libcarma_sae_common_BUILD_DOCS
+  "Build CARMA SAE Common Library docs"
+  ${libcarma_BUILD_DOCS}
+)
+
+option(libcarma_sae_common_BUILD_PACKAGING
+  "Build CARMA SAE Common Library packaging artifacts"
+  ${libcarma_BUILD_PACKAGING}
+)
