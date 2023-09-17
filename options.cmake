@@ -53,3 +53,8 @@ option(libcarma_sae_common_BUILD_LIBRARY
   "Build CARMA SAE Common library"
   ${libcarma_BUILD_LIBRARIES}
 )
+
+option(libcarma_sae_j2735_BUILD_LIBRARY
+  "Build CARMA SAE J2735 library"
+  ${libcarma_BUILD_LIBRARIES}
+)
