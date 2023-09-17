@@ -1,5 +1,6 @@
 add_executable(libcarma_sae_common_unit_tests
   test_bad_data_element_access.cpp
+  test_data_element.cpp
 )
 
 target_link_libraries(libcarma_sae_common_unit_tests
