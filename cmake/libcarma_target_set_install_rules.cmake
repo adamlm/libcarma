@@ -43,6 +43,9 @@ include(GNUInstallDirs)
 
 function(libcarma_target_set_install_rules target)
 
+  libcarma_target_remove_library_prefix(${target})
+  libcarma_target_remove_export_name_prefix(${target})
+
   install(TARGETS ${target}
     EXPORT ${target}Targets
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
