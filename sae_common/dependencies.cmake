@@ -1,0 +1,1 @@
+libcarma_add_to_build(libcarma::metaprogramming)
