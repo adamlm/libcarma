@@ -1,1 +1,1 @@
-libcarma_add_to_build(libcarma::metaprogramming)
+libcarma_add_to_build(libcarma_metaprogramming)

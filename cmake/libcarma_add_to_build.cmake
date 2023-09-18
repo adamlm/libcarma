@@ -16,41 +16,49 @@
 libcarma_add_to_build
 ---------------------
 
-This module defines a function to conditionally add a subdirectory to the build
-tree. Some CARMA Library libraries depend on others, but attempting to add
-their subdirectories to the build tree will cause configuration errors if their
-contained targets have already been added. Conditionally adding the
-subdirectory avoids this issue.
+This module defines a function to add a CARMA Library to the build tree. Some
+CARMA libraries may be built as standalone libraries while also being included
+as dependencies for  other CARMA libraries simultanesouly being built. Using
+the add_subdirectory() function can lead to issues in this case because the
+contained targets would be defined multiple times. Instead, we can use
+``FetchContent``, which provides the end-results we are looking for but without
+the management headache.
 
 .. command:: libcarma_add_to_build
 
-  Add subdirectory to build if its contained targets have not already been
-  added to the build tree:
+  Add specified CARMA Library package's directory to the buld tree using
+  ``FetchContent``:
   functions::
 
-    libcarma_add_to_build(target)
+    libcarma_add_to_build(package)
 
-  ``libcarma_add_to_build()`` adds the specified target's containing
-  subdirectory to the build tree if the target has not already been added. Note
+  ``libcarma_add_to_build()`` adds the specified CARMA Library package's
+  containing subdirectory to the build tree using ``FetchContent``. Note
   that this function makes several implicit assumptions:
 
-    1. Argument ``target`` uses the naming convention ``libcarma::<library>``,
+    1. Argument ``package`` uses the naming convention ``libcarma_<library>``,
        where ``<library>`` is the name of the CARMA Library library of interest.
     2. The containing subdirectory of ``<library>`` uses the name ``<library>``.
 
   The options are:
 
-  ``target``
-    Specifies the target name that will be checked.
+  ``package``
+    Specifies the CARMA Library package name that will be added. The name
+    specified in this option is the same name that would be used in a
+    ``find_pacakge()`` call.
 
 #]=======================================================================]
 
-function(libcarma_add_to_build target)
+include(FetchContent)
 
-  string(REPLACE "libcarma::" "" target_no_namespace ${target})
+function(libcarma_add_to_build package)
 
-  if(NOT TARGET ${target})
-    add_subdirectory(${target_no_namespace})
-  endif()
+  string(REPLACE "libcarma_" "" package_no_prefix ${package})
+
+  FetchContent_Declare(${package}
+    SOURCE_DIR ${PROJECT_SOURCE_DIR}/${package_no_prefix}
+  )
+
+  FetchContent_MakeAvailable(${package})
 
 endfunction()

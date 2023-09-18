@@ -33,14 +33,16 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ${libcarma_EXPORT_COMPILE_COMMANDS})
 # project is incorporated into a ROS 2 workspace.
 file(TOUCH ${PROJECT_BINARY_DIR}/COLCON_IGNORE)
 
+include(FetchContent)
+
 if(libcarma_metaprogramming_BUILD_LIBRARY)
-  libcarma_add_to_build(metaprogramming)
+  libcarma_add_to_build(libcarma_metaprogramming)
 endif()
 
 if(libcarma_sae_common_BUILD_LIBRARY)
-  libcarma_add_to_build(sae_common)
+  libcarma_add_to_build(libcarma_sae_common)
 endif()
 
 if(libcarma_sae_j2735_BUILD_LIBRARY)
-  libcarma_add_to_build(sae_j2735)
+  libcarma_add_to_build(libcarma_sae_j2735)
 endif()

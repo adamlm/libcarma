@@ -10,4 +10,4 @@ CPMAddPackage(NAME units
   "BUILD_DOCS OFF"
 )
 
-libcarma_add_to_build(libcarma::sae_common)
+libcarma_add_to_build(libcarma_sae_common)
