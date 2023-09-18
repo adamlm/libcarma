@@ -10,4 +10,10 @@ CPMAddPackage(NAME units
   "BUILD_DOCS OFF"
 )
 
-libcarma_add_to_build(libcarma::sae_common)
+include(FetchContent)
+
+FetchContent_Declare(libcarma_sae_common
+  SOURCE_DIR ${PROJECT_SOURCE_DIR}/sae_common
+)
+
+FetchContent_MakeAvailable(libcarma_sae_common)
