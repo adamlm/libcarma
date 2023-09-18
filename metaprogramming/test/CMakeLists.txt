@@ -21,4 +21,7 @@ target_link_libraries(libcarma_metaprogramming_unit_tests
     libcarma::metaprogramming
 )
 
-libcarma_set_target_compiler_warnings(libcarma_metaprogramming_unit_tests)
+libcarma_target_set_compiler_warnings(libcarma_metaprogramming_unit_tests
+  PRIVATE
+  WARNINGS_AS_ERRORS
+)
