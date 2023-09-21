@@ -31,3 +31,8 @@ option(libcarma_metaprogramming_BUILD_PACKAGING
   "Build CARMA Metaprogramming Library packaging artifacts"
   ${libcarma_BUILD_PACKAGING}
 )
+
+option(libcarma_metaprogramming_RUN_CLANG_TIDY
+  "Run clang-tidy when building CARMA Metaprogramming Library"
+  ${libcarma_RUN_CLANG_TIDY}
+)

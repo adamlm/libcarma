@@ -43,6 +43,11 @@ option(libcarma_BUILD_PACKAGING
   ${PROJECT_IS_TOP_LEVEL}
 )
 
+option(libcarma_RUN_CLANG_TIDY
+  "Run clang-tidy when building CMake targets"
+  FALSE
+)
+
 # Options to build individual libraries
 option(libcarma_metaprogramming_BUILD_LIBRARY
   "Build CARMA Metaprogramming library"
