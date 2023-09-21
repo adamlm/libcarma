@@ -62,7 +62,7 @@ function(libcarma_target_set_compiler_warnings target scope)
 
   target_compile_options(${target} ${scope}
     # Common to Clang and GCC
-    $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
+    $<$<CXX_COMPILER_ID:Clang,AppleClang,GNU>:
       -Wall
       -Wextra
       -Wshadow
@@ -81,8 +81,12 @@ function(libcarma_target_set_compiler_warnings target scope)
       $<$<BOOL:ARG_WARNINGS_AS_ERRORS>:-Werror>
     >
 
-    # Specific to GCC
-    $<$<CXX_COMPILER_ID:GNU>:
+    # Specific to the GNU Compiler Collection (GCC)
+    # Note: There is an issue when running clang-tidy beside the CMake build
+    # and using GCC. These checks get enabled because we are using GCC,
+    # but clang-tidy does not support them.
+    # Related CMake issue: https://gitlab.kitware.com/cmake/cmake/-/issues/25257
+    $<$<AND:$<CXX_COMPILER_ID:GNU>,$<NOT:$<OR:$<BOOL:CMAKE_CXX_CLANG_TIDY>,$<BOOL:CMAKE_C_CLANG_TIDY>>>>:
       -Wmisleading-indentation
       -Wduplicated-cond
       -Wduplicated-branches
