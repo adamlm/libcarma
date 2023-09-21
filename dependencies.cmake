@@ -17,6 +17,7 @@ include(libcarma_target_remove_library_prefix)
 include(libcarma_target_remove_export_name_prefix)
 include(libcarma_target_set_compiler_warnings)
 include(libcarma_target_set_install_rules)
+include(libcarma_run_clang_tidy_with_build)
 
 include(${PROJECT_SOURCE_DIR}/dependency_versions.cmake)
 

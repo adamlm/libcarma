@@ -14,6 +14,12 @@
 
 include(options.cmake)
 
+if(libcarma_metaprogramming_RUN_CLANG_TIDY)
+  # Note: this function must be called before any libraries or executables
+  # are added. Otherwise, clang-tidy will not be run on them.
+  libcarma_run_clang_tidy_with_build()
+endif()
+
 add_library(libcarma_metaprogramming INTERFACE)
 add_library(libcarma::metaprogramming ALIAS libcarma_metaprogramming)
 
