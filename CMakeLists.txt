@@ -13,8 +13,9 @@
 # limitations under the License.
 
 # This project uses PROJECT_IS_TOP_LEVEL and C_STANDARD 17, both of which were
-# added in CMake 3.21.
-cmake_minimum_required(VERSION 3.21)
+# added in CMake 3.21. It also uses the SYSTEM keyword for add_subdirectory
+# (through calls to CPMAddPakcage), which was added in CMake 3.25.
+cmake_minimum_required(VERSION 3.25)
 project(libcarma)
 enable_testing()
 

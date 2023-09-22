@@ -2,7 +2,7 @@ include(libcarma_add_to_build)
 
 CPMAddPackage(NAME units
   GITHUB_REPOSITORY nholthaus/units
-  GIT_TAG v2.3.3
+  GIT_TAG ${libcarma_nholthaus_units_DEP_VERSION}
   SYSTEM ON
   EXCLUDE_FROM_ALL ON
   OPTIONS
