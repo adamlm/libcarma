@@ -10,6 +10,9 @@ jobs:
   static_analysis:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v4
+
       - name: Configure CMake (with clang-tidy)
         run: |
           cmake -B build \
