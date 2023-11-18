@@ -28,6 +28,10 @@ include(dependencies.cmake)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_STANDARD 17)
 
+# Compiler exentions may not be portable to other compilers
+set(CMAKE_CXX_EXTENSIONS FALSE)
+set(CMAKE_C_EXTENSIONS FALSE)
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ${libcarma_EXPORT_COMPILE_COMMANDS})
 
 # This prevents colcon from trying to build CMake build artifacts when the
