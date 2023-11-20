@@ -51,3 +51,7 @@ endif()
 if(libcarma_sae_j2735_BUILD_LIBRARY)
   libcarma_add_to_build(libcarma_sae_j2735)
 endif()
+
+if(libcarma_chrono_BUILD_LIBRARY)
+  libcarma_add_to_build(libcarma_chrono)
+endif()
