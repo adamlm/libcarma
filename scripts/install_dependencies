@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e           # Exit if any command has non-zero exit code (return non-zero)
+set -u           # Referencing undefined variables is an error
+set -o pipefail  # Exit if any command in a pipeline fails (return last failed command's code)
+
+echo "libcarma: installing depdendcies"
+
+sudo apt update
+
+DEBIAN_FRONTEND=noninteractive sudo apt install --yes --quiet \
+    clang-tidy \
+    iwyu \
+    libeigen3-dev \
+    libfmt-dev \
+    libgtest-dev \
+    librange-v3-dev \
+    python3-pip \
+    shellcheck
+
+sudo rm -rf /var/lib/apt/lists/*

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e  # Exit if any command has non-zero exit code (return non-zero)
+
+echo "libcarma: building project"
+
+cmake --build build

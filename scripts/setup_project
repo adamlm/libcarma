@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "libcarma: setting up project"
+
+cmake -B build .
