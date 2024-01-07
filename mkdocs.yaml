@@ -1,0 +1,40 @@
+site_name: libcarma
+repo_url: https://github.com/adamlm/libcarma
+repo_name: adamlm/libcarma
+
+plugins:
+  - search
+  - monorepo
+
+theme:
+  features:
+    - navigation.indexes
+    - navigation.path
+  icon:
+    repo: fontawesome/brands/github
+  name: material
+  palette:
+    - scheme: default
+      primary: amber
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+nav:
+  - CARMA Library: "index.md"
+  - Metaprogramming: "!include ./metaprogramming/mkdocs.yaml"
+  - SAE support:
+      - Common: "!include ./sae_common/mkdocs.yaml"
+      - J2735: "!include ./sae_j2735/mkdocs.yaml"
