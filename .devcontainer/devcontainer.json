@@ -4,12 +4,22 @@
     "vscode": {
       "extensions": [
         "esbenp.prettier-vscode",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "ms-python.python",
         "ms-vscode.cpptools-extension-pack",
-        "streetsidesoftware.code-spell-checker"
+        "streetsidesoftware.code-spell-checker",
+        "timonwong.shellcheck"
       ]
     }
   },
-  "remoteUser": "vscode",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-  "workspaceFolder": "/workspace"
+  "features": {
+    "ghcr.io/adamlm/devcontainer-features/cmake": {
+      "version": "3.27.4"
+    }
+  },
+  "capAdd": [
+    "SYS_PTRACE" // Allows debugging inside container
+  ],
+  "securityOpt": ["seccomp=unconfined"] // Allows debugging inside container
 }
