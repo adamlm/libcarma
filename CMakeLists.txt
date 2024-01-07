@@ -40,6 +40,10 @@ file(TOUCH ${PROJECT_BINARY_DIR}/COLCON_IGNORE)
 
 include(FetchContent)
 
+if (libcarma_BUILD_DOCS)
+  add_subdirectory(docs)
+endif()
+
 if(libcarma_metaprogramming_BUILD_LIBRARY)
   libcarma_add_to_build(libcarma_metaprogramming)
 endif()
