@@ -12,7 +12,8 @@ jobs:
     steps:
       - name: Checkout code repository
         uses: actions/checkout@v4
-        path: src/libcarma
+        with:
+          path: src/libcarma
 
       - name: Build libraries (with clang-tidy enabled)
         run: |
@@ -35,7 +36,8 @@ jobs:
     steps:
       - name: Checkout code repository
         uses: actions/checkout@v4
-        path: src/libcarma
+        with:
+          path: src/libcarma
 
       - name: Build libraries
         run: |
