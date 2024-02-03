@@ -12,4 +12,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include(${CMAKE_CURRENT_LIST_DIR}/libcarma/libcarma_exceptionTargets.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/libcarma_exceptionTargets.cmake)
