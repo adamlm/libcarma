@@ -10,6 +10,12 @@ jobs:
   static_analysis:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install colcon
+        run: python3 -m pip install colcon-common-extensions
+
       - name: Checkout code repository
         uses: actions/checkout@v4
         with:
@@ -34,6 +40,12 @@ jobs:
   unit_tests:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install colcon
+        run: python3 -m pip install colcon-common-extensions
+
       - name: Checkout code repository
         uses: actions/checkout@v4
         with:
