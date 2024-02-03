@@ -12,10 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-find_package(libcarma_cmake REQUIRED)
-find_package(libcarma_sae_common REQUIRED)
-find_package(units REQUIRED)
+include(CMakeFindDependencyMacro)
 
-if(libcarma_sae_j2735_BUILD_TESTS)
-  find_package(GTest REQUIRED)
-endif()
+find_dependency(libcarma_sae_common)
+
+include(${CMAKE_CURRENT_LIST_DIR}/libcarma_sae_j2735Targets.cmake)
