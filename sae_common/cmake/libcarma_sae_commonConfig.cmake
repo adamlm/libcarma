@@ -12,4 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include(CMakeFindDependencyMacro)
+
+find_dependency(libcarma_metaprogramming)
+find_dependency(units)
+
 include(${CMAKE_CURRENT_LIST_DIR}/libcarma_sae_commonTargets.cmake)
