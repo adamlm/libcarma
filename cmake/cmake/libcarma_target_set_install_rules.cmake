@@ -41,6 +41,9 @@ function consolidates that code so it can be used across CARMA Library.
 
 include(GNUInstallDirs)
 
+include(libcarma_target_remove_library_prefix)
+include(libcarma_target_remove_export_name_prefix)
+
 function(libcarma_target_set_install_rules target)
 
   libcarma_target_remove_library_prefix(${target})
