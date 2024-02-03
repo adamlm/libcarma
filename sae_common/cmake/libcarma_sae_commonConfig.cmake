@@ -12,10 +12,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-find_package(libcarma_cmake REQUIRED)
-find_package(libcarma_metaprogramming REQUIRED)
-find_package(units REQUIRED)
-
-if(libcarma_sae_common_BUILD_TESTS)
-  find_package(GTest REQUIRED)
-endif()
+include(${CMAKE_CURRENT_LIST_DIR}/libcarma_sae_commonTargets.cmake)
