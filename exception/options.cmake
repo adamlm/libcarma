@@ -16,3 +16,8 @@ option(libcarma_exception_BUILD_TESTS
   "Build CARMA Exception tests"
   ${libcarma_BUILD_TESTS}
 )
+
+option(libcarma_exception_BUILD_INSTALL
+  "Build CARMA Exception Library CMake install targets"
+  ${libcarma_BUILD_INSTALL}
+)
