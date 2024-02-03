@@ -15,5 +15,6 @@
 include(CMakeFindDependencyMacro)
 
 find_dependency(libcarma_sae_common)
+find_dependency(units)
 
 include(${CMAKE_CURRENT_LIST_DIR}/libcarma_sae_j2735Targets.cmake)
