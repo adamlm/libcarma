@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include(libcarma_target_set_compiler_warnings)
+
 add_library(libcarma_metaprogramming_unit_tests
   test_always_false.cpp
 )

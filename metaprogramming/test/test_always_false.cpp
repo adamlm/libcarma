@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include <libcarma/metaprogramming/always_false.hpp>
+#include <type_traits>
 
 struct T
 {
