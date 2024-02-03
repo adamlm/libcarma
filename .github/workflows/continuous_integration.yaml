@@ -10,36 +10,61 @@ jobs:
   static_analysis:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install colcon
+        run: python3 -m pip install colcon-common-extensions
+
       - name: Checkout code repository
         uses: actions/checkout@v4
+        with:
+          path: src/libcarma
 
-      - name: Configure CMake (with clang-tidy)
+      - name: Build libraries (with clang-tidy enabled)
         run: |
-          cmake -B build \
-            -DCMAKE_BUILD_TYPE=Release \
-            -DCMAKE_CXX_COMPILER=clang++-14 \
-            -DCMAKE_C_COMPILER=clang-14 \
-            -Dlibcarma_RUN_CLANG_TIDY=TRUE \
-            .
+          colcon build \
+            --cmake-args \
+              -DCMAKE_BUILD_TYPE=Release \
+              -DCMAKE_CXX_STANDARD=17 \
+              -DCMAKE_CXX_COMPILER=clang++ \
+              -DCMAKE_CXX_EXTENSIONS=OFF \
+              -DCMAKE_CXX_CLANG_TIDY="clang-tidy;-extra-arg=-std=c++17" \
+              -DCMAKE_C_STANDARD=11 \
+              -DCMAKE_C_COMPILER=clang \
+              -DCMAKE_C_EXTENSIONS=OFF \
+              -DCMAKE_C_CLANG_TIDY=clang-tidy \
+              -Dlibcarma_BUILD_INSTALL=TRUE \
+              -Dlibcarma_BUILD_TESTS=TRUE
 
   unit_tests:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install colcon
+        run: python3 -m pip install colcon-common-extensions
+
       - name: Checkout code repository
         uses: actions/checkout@v4
+        with:
+          path: src/libcarma
 
-      - name: Configure CMake
+      - name: Build libraries
         run: |
-          cmake -B build \
-            -DCMAKE_BUILD_TYPE=Release \
-            -DCMAKE_CXX_COMPILER=clang++-14 \
-            -DCMAKE_C_COMPILER=clang-14 \
-            .
+          colcon build \
+            --cmake-args \
+              -DCMAKE_BUILD_TYPE=Release \
+              -DCMAKE_CXX_STANDARD=17 \
+              -DCMAKE_CXX_COMPILER=clang++ \
+              -DCMAKE_CXX_EXTENSIONS=OFF \
+              -DCMAKE_C_STANDARD=11 \
+              -DCMAKE_C_COMPILER=clang \
+              -DCMAKE_C_EXTENSIONS=OFF \
+              -Dlibcarma_BUILD_INSTALL=TRUE \
+              -Dlibcarma_BUILD_TESTS=TRUE
 
-      - name: Build project
+      - name: Run tests
         run: |
-          cmake --build build
-
-      - name: Run CTest
-        run: |
-          ctest --test-dir build
+          colcon test
