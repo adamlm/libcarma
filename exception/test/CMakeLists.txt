@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include(libcarma_target_set_compiler_warnings)
+
 add_executable(libcarma_exception_unit_tests
   test_exception.cpp
 )

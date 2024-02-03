@@ -11,27 +11,5 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-cmake_minimum_required(VERSION 3.25)
-project(libcarma_exception)
 
-include(options.cmake)
-include(dependencies.cmake)
-
-add_library(libcarma_exception INTERFACE)
-add_library(libcarma::exception ALIAS libcarma_exception)
-
-target_include_directories(libcarma_exception
-  INTERFACE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>
-)
-
-if(libcarma_exception_BUILD_TESTS)
-  enable_testing()
-  add_subdirectory(test)
-endif()
-
-if(libcarma_exception_BUILD_INSTALL)
-  include(libcarma_target_set_install_rules)
-
-  libcarma_target_set_install_rules(libcarma_exception)
-endif()
+include(${CMAKE_CURRENT_LIST_DIR}/libcarma/libcarma_exceptionTargets.cmake)
